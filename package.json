@@ -1,7 +1,10 @@
 {
   "name": "lazy-cascader",
   "version": "0.1.0",
-  "private": true,
+  "description":"A Component of Cascader for Vue.js based ElementUI",
+  "author": "zhushunsheng <503305196@qq.com>",
+  "main": "src/components/cascader/LazyCascader",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -9,6 +12,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "element-ui": "^2.14.1",
     "vue": "^2.6.10"
   },
   "devDependencies": {
