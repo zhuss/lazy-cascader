@@ -56,7 +56,7 @@ components: {
 |参数|说明|类型|可选值|默认值|
 |---|---|---|---|---|
 |multiple|是否多选	|boolean|-|false|
-|checkStrictly|配置选项，具体见下表|object|-|-|
+|checkStrictly|是否严格的遵守父子节点不互相关联|boolean|-|false|
 |value|指定选项的值为选项对象的某个属性值|string|-|'value'|
 |label|指定选项标签为选项对象的某个属性值	|string|-|'label'|
 |leaf|指定选项的叶子节点的标志位为选项对象的某个属性值|string|-|leaf|

@@ -1,6 +1,6 @@
 {
   "name": "lazy-cascader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description":"A Component of Cascader for Vue.js based ElementUI",
   "author": "zhushunsheng <503305196@qq.com>",
   "main": "src/components/cascader/LazyCascader",
