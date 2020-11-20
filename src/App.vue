@@ -16,6 +16,8 @@
       <div>
         <lazy-cascader
           v-model="value3"
+          placeholder="请选择类目啊"
+          width="500px"
           filterable
           :props="props3"
         ></lazy-cascader>

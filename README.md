@@ -51,6 +51,8 @@ components: {
 |placeholder|输入框占位文本	|string|-|请选择|
 |disabled|是否禁用|boolean|-|false|
 |filterable|是否开启搜索|boolean|-|false|
+|width|组件的宽度，输入框和搜索框的宽度|string|-|400px|
+
 
 5、props配置项
 |参数|说明|类型|可选值|默认值|
