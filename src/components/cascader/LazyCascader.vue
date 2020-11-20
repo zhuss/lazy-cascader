@@ -47,7 +47,9 @@
           @select="handleSelect"
         >
           <template slot-scope="{ item }">
-            <div class="name">{{ item[props.label].join(separator) }}</div>
+            <div class="name" :class="isChecked(item[props.value])">
+              {{ item[props.label].join(separator) }}
+            </div>
           </template>
         </el-autocomplete>
       </div>
@@ -168,6 +170,26 @@ export default {
     this.initOptions();
   },
   methods: {
+    //搜索是否选中
+    isChecked(value) {
+      //多选
+      if (this.props.multiple) {
+        let index = this.current.findIndex(item => {
+          return item.join() == value.join();
+        });
+        if (index > -1) {
+          return "el-link el-link--primary";
+        } else {
+          return "";
+        }
+      } else {
+        if (value.join() == this.current.join()) {
+          return "el-link el-link--primary";
+        } else {
+          return "";
+        }
+      }
+    },
     //搜索
     querySearch(query, callback) {
       this.props.lazySearch(query, list => {
