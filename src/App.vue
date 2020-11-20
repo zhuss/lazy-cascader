@@ -155,7 +155,6 @@ export default {
     },
     //获取节点数据
     getCateList(parent) {
-      console.log(parent);
       if (parent == 0) {
         return this.options.map(item => {
           let obj = {

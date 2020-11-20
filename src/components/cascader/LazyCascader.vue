@@ -260,6 +260,9 @@ export default {
       } else if (node.data[this.props.leaf]) {
         resolve();
       } else if (node.data.children) {
+        if (this.props.multiple) {
+          this.current = current;
+        }
         resolve();
       } else {
         this.props.lazyLoad(node.value, list => {
