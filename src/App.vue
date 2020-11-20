@@ -122,7 +122,7 @@ export default {
         lazyLoad: this.lazyLoad,
         lazySearch: this.lazySearch
       },
-      value4: [[1], [1, 3]],
+      value4: [],
       props4: {
         multiple: true,
         checkStrictly: true,
@@ -147,6 +147,10 @@ export default {
           {
             id: [1, 3, 7],
             name: ["服装", "男装", "T恤"]
+          },
+          {
+            id: [1, 4],
+            name: ["服装", "女装"]
           },
           {
             id: [2, 5],

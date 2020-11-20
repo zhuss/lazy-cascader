@@ -203,6 +203,7 @@ export default {
           return obj.join() == item[this.props.value].join();
         });
         if (index == -1) {
+          this.$refs.panel.clearCheckedNodes();
           this.current.push(item[this.props.value]);
           this.$emit("change", this.current);
         }
