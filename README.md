@@ -2,6 +2,9 @@
 
 > ElementUI 级联选择组件（Cascader）懒加载的拓展 
 
+
+ ![image.png](https://upload-images.jianshu.io/upload_images/80274-8e35b51d940a39fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 # 为什么会有这个组件？
 
 首先我们要问ElementUI的Cascader级联选择器懒加载的时候有什么问题。
