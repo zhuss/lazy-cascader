@@ -281,12 +281,7 @@ export default {
         return obj.join() == item.value.join();
       });
       if (index > -1) {
-        let node = this.$refs.panel.getCheckedNodes().find(n => {
-          return n.value == this.current[index][this.current[index].length - 1];
-        });
-        if (node) {
-          node.checked = false;
-        }
+        this.$refs.panel.clearCheckedNodes();
         this.current.splice(index, 1);
         this.$emit("change", this.current);
       }
