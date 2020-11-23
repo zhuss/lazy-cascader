@@ -55,6 +55,8 @@ components: {
 |disabled|是否禁用|boolean|-|false|
 |filterable|是否开启搜索|boolean|-|false|
 |width|组件的宽度，输入框和搜索框的宽度|string|-|400px|
+|suggestionsPopperClass|搜索下拉列表的类名|string|-|suggestions-popper-class，注：默认suggestions-popper-class的样式为width: auto!important;|
+|searchWidth|搜索框宽度|string|-|-，注：取值方式为width: searchWidth \|\| width \|\| 'auto'|
 
 
 5、props配置项

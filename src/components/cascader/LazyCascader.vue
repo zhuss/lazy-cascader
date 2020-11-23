@@ -35,7 +35,8 @@
       <!-- 搜索 -->
       <div class="lazy-cascader-search">
         <el-autocomplete
-          :style="{ width: width }"
+          :style="{ width: searchWidth || width || 'auto' }"
+          :popper-class="suggestionsPopperClass"
           v-if="filterable"
           class="inline-input"
           prefix-icon="el-icon-search"
@@ -129,6 +130,13 @@ export default {
       default: () => {
         return {};
       }
+    },
+    suggestionsPopperClass: {
+      type: String,
+      default: 'suggestions-popper-class'
+    },
+    searchWidth: {
+      type: String
     }
   },
   data() {
@@ -379,5 +387,8 @@ export default {
 .lazy-cascader-panel {
   margin-top: 10px;
   display: inline-block;
+}
+.suggestions-popper-class {
+  width: auto!important;
 }
 </style>
