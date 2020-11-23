@@ -221,6 +221,7 @@ export default {
           this.current == null ||
           item[this.props.value].join() !== this.current.join()
         ) {
+          this.$refs.panel.activePath = [];
           this.current = item[this.props.value];
           this.$emit("change", this.current);
         }
