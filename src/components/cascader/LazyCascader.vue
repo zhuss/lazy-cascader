@@ -133,7 +133,7 @@ export default {
     },
     suggestionsPopperClass: {
       type: String,
-      default: 'suggestions-popper-class'
+      default: "suggestions-popper-class"
     },
     searchWidth: {
       type: String
@@ -389,6 +389,7 @@ export default {
   display: inline-block;
 }
 .suggestions-popper-class {
-  width: auto!important;
+  width: auto !important;
+  min-width: 200px;
 }
 </style>
