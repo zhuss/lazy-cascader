@@ -35,7 +35,7 @@
       <!-- 搜索 -->
       <div class="lazy-cascader-search">
         <el-autocomplete
-          :style="{ width: searchWidth || width || 'auto' }"
+          :style="{ width: searchWidth || '100%' }"
           :popper-class="suggestionsPopperClass"
           v-if="filterable"
           class="inline-input"
@@ -46,6 +46,7 @@
           :trigger-on-focus="false"
           placeholder="请输入"
           @select="handleSelect"
+          @blur="isSearchEmpty = false"
         >
           <template slot-scope="{ item }">
             <div class="name" :class="isChecked(item[props.value])">
@@ -53,6 +54,7 @@
             </div>
           </template>
         </el-autocomplete>
+        <div class="empty" v-show="isSearchEmpty">{{searchEmptyText}}</div>
       </div>
       <!-- 搜索 -->
       <!-- 级联面板 -->
@@ -137,10 +139,15 @@ export default {
     },
     searchWidth: {
       type: String
+    },
+    searchEmptyText: {
+      type: String,
+      default: '暂无数据'
     }
   },
   data() {
     return {
+      isSearchEmpty: false,
       keyword: "",
       options: [],
       current: [],
@@ -172,6 +179,9 @@ export default {
     },
     value(v) {
       this.current = v;
+    },
+    keyword() {
+      this.isSearchEmpty = false;
     }
   },
   created() {
@@ -201,7 +211,8 @@ export default {
     //搜索
     querySearch(query, callback) {
       this.props.lazySearch(query, list => {
-        callback(list);
+        callback(list)
+        if (!list || !list.length) this.isSearchEmpty = true;
       });
     },
     //选中搜索下拉搜索项
@@ -392,5 +403,31 @@ export default {
 .suggestions-popper-class {
   width: auto !important;
   min-width: 200px;
+}
+.lazy-cascader-search {
+  .empty {
+    width: calc(100% - 24px);
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #999;
+    text-align: center;
+    position: absolute;
+    z-index: 999;
+    padding: 12px 0;
+    margin-top: 12px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    &:before {
+      content: '';
+      position: absolute;
+      top: -14px;
+      left: 35px;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid #ebeef5;
+    }
+  }
 }
 </style>
