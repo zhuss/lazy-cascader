@@ -92,7 +92,7 @@ export default {
           ]
         }
       ],
-      value: [1, 3, 7],
+      value: [0],
       props: {
         multiple: false,
         checkStrictly: false,

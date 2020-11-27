@@ -54,7 +54,7 @@
             </div>
           </template>
         </el-autocomplete>
-        <div class="empty" v-show="isSearchEmpty">{{searchEmptyText}}</div>
+        <div class="empty" v-show="isSearchEmpty">{{ searchEmptyText }}</div>
       </div>
       <!-- 搜索 -->
       <!-- 级联面板 -->
@@ -142,7 +142,7 @@ export default {
     },
     searchEmptyText: {
       type: String,
-      default: '暂无数据'
+      default: "暂无数据"
     }
   },
   data() {
@@ -211,7 +211,7 @@ export default {
     //搜索
     querySearch(query, callback) {
       this.props.lazySearch(query, list => {
-        callback(list)
+        callback(list);
         if (!list || !list.length) this.isSearchEmpty = true;
       });
     },
@@ -271,26 +271,31 @@ export default {
     },
     /**格式化id=>object */
     async getObject(id) {
-      let options = this.options;
-      let nameArray = [];
-      for (let i = 0; i < id.length; i++) {
-        let index = options.findIndex(item => {
-          return item[this.props.value] == id[i];
-        });
-        nameArray.push(options[index][this.props.label]);
-        if (i < id.length - 1 && options[index].children == undefined) {
-          let list = new Promise(resolve => {
-            this.props.lazyLoad(id[i], list => {
-              resolve(list);
-            });
+      try {
+        let options = this.options;
+        let nameArray = [];
+        for (let i = 0; i < id.length; i++) {
+          let index = options.findIndex(item => {
+            return item[this.props.value] == id[i];
           });
-          this.$set(options[index], "children", await list);
-          options = options[index].children;
-        } else {
-          options = options[index].children;
+          nameArray.push(options[index][this.props.label]);
+          if (i < id.length - 1 && options[index].children == undefined) {
+            let list = new Promise(resolve => {
+              this.props.lazyLoad(id[i], list => {
+                resolve(list);
+              });
+            });
+            this.$set(options[index], "children", await list);
+            options = options[index].children;
+          } else {
+            options = options[index].children;
+          }
         }
+        return { value: id, label: nameArray };
+      } catch (e) {
+        this.current = [];
+        return { value: [], label: [] };
       }
-      return { value: id, label: nameArray };
     },
     //懒加载数据
     async lazyLoad(node, resolve) {
@@ -415,9 +420,9 @@ export default {
     z-index: 999;
     padding: 12px 0;
     margin-top: 12px;
-    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       top: -14px;
       left: 35px;
