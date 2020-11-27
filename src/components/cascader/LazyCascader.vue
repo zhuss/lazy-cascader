@@ -424,14 +424,15 @@ export default {
     &:before {
       content: "";
       position: absolute;
-      top: -14px;
-      left: 35px;
+      top: -12px;
+      left: 36px;
       width: 0;
       height: 0;
       border-left: 6px solid transparent;
       border-right: 6px solid transparent;
       border-top: 6px solid transparent;
-      border-bottom: 6px solid #ebeef5;
+      border-bottom: 6px solid #fff;
+      filter: drop-shadow(0 -1px 2px rgba(0, 0, 0, .02));
     }
   }
 }
