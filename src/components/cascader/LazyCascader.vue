@@ -432,7 +432,7 @@ export default {
       border-right: 6px solid transparent;
       border-top: 6px solid transparent;
       border-bottom: 6px solid #fff;
-      filter: drop-shadow(0 -1px 2px rgba(0, 0, 0, .02));
+      filter: drop-shadow(0 -1px 2px rgba(0, 0, 0, 0.02));
     }
   }
 }
