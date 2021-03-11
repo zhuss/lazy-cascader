@@ -81,6 +81,7 @@
           <el-tag
             class="lazy-cascader-tag"
             type="info"
+            size="small"
             disable-transitions
             v-for="(item, index) in labelArray"
             :key="index"
@@ -98,6 +99,13 @@
             <span>{{ labelObject.label.join(separator) }}</span>
           </el-tooltip>
         </div>
+        <span
+          class="lazy-cascader-clear"
+          v-if="clearable && current.length > 0"
+          @click.stop="clearBtnClick"
+        >
+          <i class="el-icon-close"></i>
+        </span>
       </div>
       <!--内容区域-->
     </el-popover>
@@ -121,11 +129,13 @@ export default {
       type: String,
       default: "请选择"
     },
+
     width: {
       type: String,
       default: "400px"
     },
     filterable: Boolean,
+    clearable: Boolean,
     disabled: Boolean,
     props: {
       type: Object,
@@ -334,6 +344,12 @@ export default {
         this.$emit("change", this.current);
       }
     },
+    //点击清空按钮
+    clearBtnClick() {
+      this.$refs.panel.clearCheckedNodes();
+      this.current = [];
+      this.$emit("change", this.current);
+    },
     change() {
       this.$emit("change", this.current);
     }
@@ -345,6 +361,7 @@ export default {
   display: inline-block;
   width: 300px;
   .lazy-cascader-input {
+    position: relative;
     width: 100%;
     background: #fff;
     height: auto;
@@ -366,6 +383,16 @@ export default {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+    > .lazy-cascader-clear {
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
     }
   }
   .lazy-cascader-input-disabled {

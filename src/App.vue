@@ -7,6 +7,7 @@
         <lazy-cascader
           v-model="value"
           filterable
+          clearable
           :props="props"
         ></lazy-cascader>
       </div>
